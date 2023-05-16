@@ -1,0 +1,32 @@
+<h2>Select the number of seats:</h2>
+<div>
+  <label>
+    <input type="radio" name="numSeats" [(ngModel)]="selectedNumSeats" value="1" (change)="selectNumSeats(1)">
+    1
+  </label>
+  <label>
+    <input type="radio" name="numSeats" [(ngModel)]="selectedNumSeats" value="2" (change)="selectNumSeats(2)">
+    2
+  </label>
+  <label>
+    <input type="radio" name="numSeats" [(ngModel)]="selectedNumSeats" value="3" (change)="selectNumSeats(3)">
+    3
+  </label>
+  <label>
+    <input type="radio" name="numSeats" [(ngModel)]="selectedNumSeats" value="4" (change)="selectNumSeats(4)">
+    4
+  </label>
+</div>
+
+<h2>Select your seats:</h2>
+<div class="seat-map">
+  <div class="row" *ngFor="let row of seatMap; let rowIndex = index">
+    <div
+      class="seat"
+      *ngFor="let seat of row; let seatIndex = index"
+      [class.selected]="isSeatSelected(rowIndex, seatIndex)"
+    >
+      {{ seat }}
+    </div>
+  </div>
+</div>
